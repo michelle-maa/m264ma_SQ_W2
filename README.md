@@ -1,4 +1,4 @@
-# Week 2 Example 2: Platformer with Platforms Array
+# m264ma_SQ_W2
 
 ## Setup and Interaction Instructions
 
