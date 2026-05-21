@@ -65,11 +65,13 @@ const PLATFORM_COLOR = [128, 0, 32]; // warm orange
 // ============================================================
 
 let bg;
+let character;
 
 // preload() runs before setup() and is used to load assets like images and sounds.
 
 function preload() {
   bg = loadImage('assets/images/sushibg.jpg');
+  character = loadImage('assets/images/cookingmama.png');
 }
 
 function setup() {
@@ -243,34 +245,7 @@ function drawPlatforms() {
 // styles set here don't affect other drawing functions.
 // ------------------------------------------------------------
 function drawPlayer() {
-  push(); // save current drawing settings
-
-  fill(0, 200, 180); // teal
-  noStroke();
-
-  beginShape();
-  let numPoints = 48; // more points = smoother shape
-  for (let i = 0; i < numPoints; i++) {
-    let angle = (TWO_PI / numPoints) * i;
-
-    // noise() returns a smooth random value between 0 and 1.
-    // We use it to push each vertex in or out slightly.
-    let noiseVal = noise(cos(angle) * 0.8 + blobT, sin(angle) * 0.8 + blobT);
-
-    // map() converts noise (0–1) to a radius offset (-7 to +7 pixels)
-    let r = player.r + map(noiseVal, 0, 1, -7, 7);
-
-    // Convert polar coordinates (angle, radius) to x/y
-    vertex(player.x + cos(angle) * r, player.y + sin(angle) * r);
-  }
-  endShape(CLOSE);
-
-  // Draw two simple eyes
-  fill(10);
-  ellipse(player.x - 7, player.y - 5, 7, 7);
-  ellipse(player.x + 7, player.y - 5, 7, 7);
-
-  pop(); // restore drawing settings
+  image(character, player.x - 32, player.y - 50, 64, 75);
 }
 
 // ------------------------------------------------------------
