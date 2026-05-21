@@ -1,7 +1,3 @@
-// ============================================================
-// Week 2 Example 2: Platformer with Platforms Array
-// ============================================================
-
 // ------------------------------------------------------------
 // PLATFORMS ARRAY
 // Each platform is an object with x, y, width, and height.
@@ -14,13 +10,13 @@
 // ------------------------------------------------------------
 let platforms = [
   // { x, y, w, h }
-  { x: 0,   y: 410, w: 800, h: 40 }, // ground (full width floor)
-  { x: 80,  y: 310, w: 120, h: 16 }, // left low platform
-  { x: 280, y: 240, w: 140, h: 16 }, // centre platform
-  { x: 500, y: 170, w: 120, h: 16 }, // right high platform
-  { x: 160, y: 150, w: 100, h: 16 }, // left high platform
-  { x: 360, y: 320, w: 110, h: 16 }, // centre low platform
-  { x: 620, y: 290, w: 130, h: 16 }, // far right platform
+  { x: 0,   y: 410, w: 800, h: 40, color: [128, 0, 32]}, // ground (full width floor)
+  { x: 50,  y: 310, w: 150, h: 16, color: [128, 0, 32]}, // left low platform
+  { x: 300, y: 240, w: 140, h: 16, color: [128, 0, 32]}, // centre platform
+  { x: 500, y: 130, w: 120, h: 16, color: [128, 0, 32]}, // right high platform
+  { x: 170, y: 100, w: 200, h: 16, color: [128, 0, 32]}, // left high platform
+  { x: 450, y: 320, w: 110, h: 16, color: [128, 0, 32]}, // centre low platform
+  { x: 620, y: 250, w: 130, h: 16, color: [128, 0, 32]}, // far right platform
 ];
 
 // ------------------------------------------------------------
@@ -217,6 +213,9 @@ function resolvePlatformCollisions() {
       player.y = platTop - player.r; // snap to platform surface
       player.vy = 0;                 // stop falling
       player.onGround = true;        // allow jumping again
+    
+     //  Change platform color when stepped on
+        p.color = [144, 238, 144];  
     }
   }
 }
@@ -228,12 +227,12 @@ function resolvePlatformCollisions() {
 // of objects — enemies, coins, tiles, etc.
 // ------------------------------------------------------------
 function drawPlatforms() {
-  fill(PLATFORM_COLOR[0], PLATFORM_COLOR[1], PLATFORM_COLOR[2]);
   noStroke();
 
   for (let i = 0; i < platforms.length; i++) {
     let p = platforms[i];
-    rect(p.x, p.y, p.w, p.h, 6); // rounded corners
+    fill(p.color[0], p.color[1], p.color[2]);
+    rect(p.x, p.y, p.w, p.h, 6);
   }
 }
 
