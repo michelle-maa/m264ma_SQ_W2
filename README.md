@@ -19,8 +19,8 @@ The console will show any errors in your sketch.
 
 ## Assets
 
- 'assets'/images/cookingmama.png | Photo from GiantBomb [1]                 |
- 'assets'/images/sushibg.jpg     | Photo by Ryunosuke Kikuno / Unsplash [2] |
+ |'assets'/images/cookingmama.png | Photo from GiantBomb [1]                 |
+ |'assets'/images/sushibg.jpg     | Photo by Ryunosuke Kikuno / Unsplash [2] |
 
 ## References
 
